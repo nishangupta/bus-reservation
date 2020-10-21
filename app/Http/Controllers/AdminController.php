@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Bus;
+use Yajra\DataTables\DataTables;
 
 class AdminController extends Controller
 {
@@ -13,5 +15,9 @@ class AdminController extends Controller
     public function buses()
     {
         return view('admin.buses');
+    }
+    public function profile()
+    {
+        return view('admin.profile');
     }
 }

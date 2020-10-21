@@ -46,9 +46,10 @@
     <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/jquery.easing.min.js')}}"></script>
     <script src="{{asset('js/admin.js')}}"></script>
+    {{-- needs to be imported here --}}
+    <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
 
     <script src="{{asset('js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/Chart.min.js')}}"></script>
     <script>
         $(document).ready(function() {
