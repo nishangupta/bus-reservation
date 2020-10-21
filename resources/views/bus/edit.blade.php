@@ -129,7 +129,7 @@
                 </select>
               </div>
 
-              <button type="submit" class="btn btn-primary">Add</button>
+              <button type="submit" class="btn btn-primary">Update</button>
             </form> 
 
             <div class="d-flex flex-row-reverse">
@@ -157,7 +157,7 @@
 
             <div class="mt-4">
               <p>Bus media</p>
-              <img src="{{asset($bus->img)}}" class="img-fluid" alt="">
+              <img src="{{asset($bus->img)}}" class="img-fluid" alt="Bus Image">
             </div>
 
           </div>

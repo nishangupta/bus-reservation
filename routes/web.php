@@ -23,8 +23,7 @@ Route::prefix('account')->group(function () {
     Route::put('/changePassword', [AccountController::class, 'changePassword'])->name('account.changePassword');
 });
 
-
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('role:admin')->group(function () {
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('buses', [AdminController::class, 'buses'])->name('admin.buses');
     Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
