@@ -15,9 +15,18 @@ class HomeController extends Controller
     ]);
   }
 
-  public function search()
+  public function search(Request $request)
   {
-    return view('home.list');
+    if ($request->q) {
+      $data = Bus::where('name', 'LIKE', '%' . $request->q . '%');
+    } else if ($request->arrivalDays) {
+      $data = Bus::where('arrival_days', 'LIKE', '%' . $request->arrivalDays . '%');
+    } else {
+      $data = Bus::latest();
+    }
+
+    $buses = $data->paginate(6);
+    return view('home.list', compact('buses'));
   }
 
   public function show(Bus $bus)
