@@ -20,6 +20,7 @@
 </head>
 <body>
     <div id="app">
+        @include('inc.home.navbar')
        @yield('content')
     </div>
     @include('sweetalert::alert')

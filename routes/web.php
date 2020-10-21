@@ -8,8 +8,9 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/bus/search', [HomeController::class, 'search'])->name('home.search');
 Route::get('/my-reservations', [HomeController::class, 'myReservations'])->name('home.myReservations');
-Route::get('/bus/{$bus}', [HomeController::class, 'show'])->name('home.show');
+Route::get('/bus/{bus}', [HomeController::class, 'show'])->name('home.show');
 
 Route::prefix('account')->middleware('auth')->group(function () {
     Route::get('/logout', [AccountController::class, 'logout'])->name('account.logout');
