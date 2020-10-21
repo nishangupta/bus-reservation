@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApiBusController;
@@ -17,8 +18,10 @@ Route::get('/index', function () {
     return view('users');
 });
 
-
-
+Route::prefix('account')->group(function () {
+    Route::get('/logout', [AccountController::class, 'logout'])->name('account.logout');
+    Route::put('/changePassword', [AccountController::class, 'changePassword'])->name('account.changePassword');
+});
 
 
 Route::prefix('admin')->group(function () {
@@ -33,7 +36,4 @@ Route::prefix('admin')->group(function () {
     Route::get('/bus/{id}/edit', [BusController::class, 'edit'])->name('bus.edit');
     Route::put('/bus/{id}', [BusController::class, 'update'])->name('bus.update');
     Route::delete('/bus,{id}', [BusController::class, 'destroy'])->name('bus.destroy');
-});
-
-Route::get('/down', function () {
 });

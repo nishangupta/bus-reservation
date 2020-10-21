@@ -157,7 +157,7 @@
 
             <div class="mt-4">
               <p>Bus media</p>
-            <img src="{{asset($bus->img)}}" class="img-fluid" alt="">
+              <img src="{{asset($bus->img)}}" class="img-fluid" alt="">
             </div>
 
           </div>

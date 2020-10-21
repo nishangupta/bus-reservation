@@ -1,7 +1,7 @@
 @extends('layouts.admin-panel')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid" style="min-height: 80vh">
   <div class="row">
     <div class="col-xl-8 order-xl-1">
       <div class="card shadow">
@@ -24,14 +24,14 @@
                   <div class="form-group focused">
                     <label >Username</label>
                     <input type="text"  class="form-control form-control-alternative" disabled
-                      placeholder="Username" value="asd">
+                      placeholder="Username" value="{{auth()->user()->name}}">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group focused">
                     <label >Email</label>
                     <input type="text"  class="form-control form-control-alternative" disabled
-                      placeholder="Email" value="asd">
+                      placeholder="Email" value="{{auth()->user()->email}}">
                   </div>
                 </div>
               </div>
