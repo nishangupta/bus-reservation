@@ -10,4 +10,13 @@ class HomeController extends Controller
   {
     return view('home.index');
   }
+  public function show()
+  {
+    return view('show');
+  }
+
+  public function myReservations()
+  {
+    return view('my-reservations');
+  }
 }

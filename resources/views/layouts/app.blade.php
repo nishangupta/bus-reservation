@@ -9,8 +9,6 @@
 
     <title>{{ config('app.name')?? 'Bus reservation' }}</title>
 
-    <!-- Scripts -->
-
     {{-- <link rel="shortcut icon" type="image/png" href="{{asset('images/logo/joblister.png')}}" /> --}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,7 +20,7 @@
 </head>
 <body>
     <div id="app">
-       @yield('layout-holder')
+       @yield('content')
     </div>
     @include('sweetalert::alert')
     <script src="{{ asset('js/app.js') }}"></script>

@@ -17,6 +17,7 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('bus_id');
             $table->unsignedBigInteger('user_id');
+            $table->string('phone');
             $table->text('additional_query');
             $table->boolean('pending')->default(0);
             $table->boolean('rejected')->default(0);

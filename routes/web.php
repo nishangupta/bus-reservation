@@ -4,21 +4,14 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApiBusController;
-use App\Models\User;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/my-reservations', [HomeController::class, 'myReservations'])->name('home.myReservations');
+Route::get('/bus/{$bus}', [HomeController::class, 'show'])->name('home.show');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/users', [BusController::class, 'users'])->name('users.index');
-
-Route::get('/index', function () {
-    return view('users');
-});
-
-Route::prefix('account')->group(function () {
+Route::prefix('account')->middleware('auth')->group(function () {
     Route::get('/logout', [AccountController::class, 'logout'])->name('account.logout');
     Route::put('/changePassword', [AccountController::class, 'changePassword'])->name('account.changePassword');
 });
