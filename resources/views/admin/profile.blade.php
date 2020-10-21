@@ -16,7 +16,9 @@
           </div>
         </div>
         <div class="card-body">
-          <form>
+        <form action="{{route('account.changePassword')}}" method="post">
+            @csrf
+            @method('put')
             <h6 class="heading-small text-muted mb-4">User information</h6>
             <div class="pl-lg-4">
               <div class="row">

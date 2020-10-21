@@ -7,6 +7,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
@@ -30,6 +31,7 @@ class AccountController extends Controller
         ]);
 
         $authUser = auth()->user();
+
         $currentP = $request->current_password;
         $newP = $request->new_password;
         $confirmP = $request->confirm_password;
@@ -40,7 +42,7 @@ class AccountController extends Controller
                 $user->password = Hash::make($newP);
                 if ($user->save()) {
                     Alert::toast('Password Changed!', 'success');
-                    return redirect()->route('account.index');
+                    return redirect()->intended('/');
                 } else {
                     Alert::toast('Something went wrong!', 'warning');
                 }
