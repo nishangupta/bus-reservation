@@ -12,10 +12,10 @@
             @csrf
             <div class="row m-1">
               <div class="col-md-12 input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search By Name" />
+                <input type="text" name="q" value="{{Request::get('q')}}" class="form-control" placeholder="Search By Name" />
                 <span class="input-group-append">
                   <button type="submit" class="btn btn-primary pt-1">
-                    <span class="fas fa-search"></span> Search Bus
+                    <span class="fas fa-search"></span> Search Bus 
                   </button>
                 </span>
               </div>
@@ -44,7 +44,7 @@
             <div class="card-body p-0">
               <div class="form-group">
                 <form action="{{route('home.search')}}" method="Get" id="arrivalDaysForm">
-                <select name="arrivalDays" class="form-control" value="{{Request::get('arrivalDays')}}" placeholder="Filter by Job Category" id="filterArrivalDays">
+                <select name="arrivalDays" class="form-control" placeholder="Filter by Job Category" id="filterArrivalDays">
                     <option disabled selected value>
                       -- select an option --
                     </option>
@@ -65,12 +65,33 @@
           </div>
         </div>
       </div>
+      <div class="card border-top-0">
+        <div class="card-body p-3" id="jobCategories">
+          <div class="pb-0">
+            <div class="card-title mb-1">Bus Arrival location</div>
+            <div class="card-body p-0">
+              <div class="form-group">
+                <form action="{{route('home.search')}}" method="Get" id="arrivalLocationForm">
+                <select name="arrivalLocation" class="form-control" placeholder="Filter by Job Category" id="filterArrivalLocation">
+                    <option disabled selected value>
+                      -- select an option --
+                    </option>
+                  @foreach($arrivalLocations as $location)
+                    <option value="{{$location->from}}">{{$location->from}}</option>
+                  @endforeach
+                  </select>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-sm-12 col-md-7 col-xl-8">
       <div class="card mt-md-0 mt-3">
         <div class="card-body ">
           <h1 class="h6 ">
-            Showing results
+            Showing results {{Request::get('q') ? 'on query "'.Request::get('q') .'"' :''}}
           </h1>
         </div>
       </div>
@@ -147,12 +168,18 @@
 
 @push('js')
 <script>
-  $(document).ready(function(){
-    let arrivalDaysForm = document.querySelector('#arrivalDaysForm');
-    let filterArrivalDays = document.querySelector('#filterArrivalDays');
-    filterArrivalDays.addEventListener('change',function(){
-      arrivalDaysForm.submit();
-    });
+$(document).ready(function(){
+  let arrivalDaysForm = document.querySelector('#arrivalDaysForm');
+  let filterArrivalDays = document.querySelector('#filterArrivalDays');
+  filterArrivalDays.addEventListener('change',function(){
+    arrivalDaysForm.submit();
   });
+
+  let arrivalLocationForm = document.querySelector('#arrivalLocationForm');
+  let filterArrivalLocation = document.querySelector('#filterArrivalLocation');
+  filterArrivalLocation.addEventListener('change',function(){
+    arrivalLocationForm.submit();
+  });
+});
 </script>
 @endpush

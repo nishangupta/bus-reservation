@@ -10,9 +10,6 @@
             <div class="col-8">
               <h3 class="mb-0 ">My account</h3>
             </div>
-            <div class="col-4 text-right">
-              <a href="#password-section" class="btn btn-sm btn-primary">Change Password</a>
-            </div>
           </div>
         </div>
         <div class="card-body">

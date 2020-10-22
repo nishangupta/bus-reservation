@@ -10,7 +10,7 @@
           {{ implode('', $errors->all(':message')) }}
         </div>
       @endif
-      <form action="">
+      <form action="{{route('reservation.create',['bus'=>$bus])}}" method="POST">
         @csrf
         <div class="row">
           <div class="col-sm-12 col-md-4">
@@ -62,9 +62,7 @@
                 </div>
             </div>                
 
-              <div>
-                  <button type="submit" class="btn btn-success"><i class="fas fa-shopping"></i>Send booking request</button>
-              </div>                                        
+            <button type="submit" class="btn btn-success"><i class="fas fa-shopping"></i>Send booking request</button>
             </div>   
 
           </div>

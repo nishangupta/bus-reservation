@@ -103,7 +103,7 @@ class BusSeeder extends Seeder
                 'seats' => '50',
             ],
             [
-                'name' => 'Day Every Bus 2',
+                'name' => 'EveryDay Bus 2',
                 'bus_code' => 'Ev123',
                 'from' => 'New york',
                 'to' => 'Jersey City',

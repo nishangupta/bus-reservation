@@ -21,8 +21,4 @@ class AdminController extends Controller
     {
         return view('admin.buses');
     }
-    public function profile()
-    {
-        return view('admin.profile');
-    }
 }

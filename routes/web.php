@@ -5,23 +5,30 @@ use App\Http\Controllers\BusController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApiBusController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/bus/search', [HomeController::class, 'search'])->name('home.search');
-Route::get('/my-reservations', [HomeController::class, 'myReservations'])->name('home.myReservations');
 Route::get('/bus/{bus}', [HomeController::class, 'show'])->name('home.show');
 
-Route::prefix('account')->middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [AccountController::class, 'profile'])->name('account.profile');
     Route::get('/logout', [AccountController::class, 'logout'])->name('account.logout');
     Route::put('/changePassword', [AccountController::class, 'changePassword'])->name('account.changePassword');
+
+
+    Route::get('/my-reservations', [ReservationController::class, 'index'])->name('reservation.index');
+    Route::post('/bus/applyReservation/{bus}', [ReservationController::class, 'create'])->name('reservation.create');
+    Route::get('/my-reservations/{id}/destroy', [ReservationController::class, 'destroy'])->name('reservation.destroy');
+    Route::get('/my-reservations-api', [ReservationController::class, 'myReservationsApi'])->name('reservation.myReservationsApi');
 });
 
 Route::prefix('admin')->middleware('role:admin')->group(function () {
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('buses', [AdminController::class, 'buses'])->name('admin.buses');
-    Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
 
+    //admin api routes
     Route::get('/get-all-buses', [ApiBusController::class, 'getAllBuses'])->name('bus.all');
 
     Route::get('/bus/create', [BusController::class, 'create'])->name('bus.create');

@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.dashboard')}}">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home.index')}}">
     <div class="sidebar-brand-text mx-2">Bus Reservation</div>
   </a>
 
@@ -16,13 +16,13 @@
         <span>Dashboard</span></a>
     </li>
   @endrole
-  @role('user')
-    <li class="nav-item active">
-      <a class="nav-link" href="{{route('home.index')}}">
-        <i class="fas fa-fw fa-h-square"></i>
-        <span>Home</span></a>
-    </li>
-  @endrole
+
+  <li class="nav-item active">
+    <a class="nav-link" href="{{route('home.index')}}">
+      <i class="fas fa-fw fa-h-square"></i>
+      <span>Home</span></a>
+  </li>
+  
   <!-- Divider -->
   <hr class="sidebar-divider">
 
@@ -63,7 +63,6 @@
   </li>
   @endrole
 
-  @role('user')
   <div class="sidebar-heading">
     Bus Information
   </div>
@@ -75,12 +74,12 @@
       <span>Bus list</span></a>
   </li>
 
+  @role('user')
   <li class="nav-item">
-    <a class="nav-link" href="{{route('home.myReservations')}}">
+    <a class="nav-link" href="{{route('reservation.index')}}">
       <i class="fas fa-fw fa-ticket-alt"></i>
       <span>My reservations</span></a>
   </li>
-  
   @endrole
 
 </ul>

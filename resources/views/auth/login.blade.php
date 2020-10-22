@@ -17,6 +17,7 @@
               <div class="p-5">
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                  <p>Use Email: admin@admin.com <br> & <br> Password: password <br> to login as Admin</p>
                 </div>
                 @if($errors->any())
                   <div class="alert alert-danger">
