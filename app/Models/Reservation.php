@@ -9,6 +9,8 @@ class Reservation extends Model
 {
     use HasFactory;
 
+    protected $guarded = false;
+
     public function bus()
     {
         return $this->belongsTo('App\Models\Bus');
@@ -16,6 +18,6 @@ class Reservation extends Model
 
     public function user()
     {
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 }

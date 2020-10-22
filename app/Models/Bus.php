@@ -10,6 +10,8 @@ class Bus extends Model
 {
     use HasFactory;
 
+    protected $guarded = false;
+
     public function path()
     {
         return url("/bus/{$this->id}-" . Str::slug($this->name));

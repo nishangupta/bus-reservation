@@ -179,7 +179,7 @@
   </li>
   @endauth
   @guest
-  <a href="{{route('login')}}" class="btn btn-primary">Login and make reservation</a>
+  <a href="{{route('login')}}" class="btn btn-primary">Make Reservations</a>
   @endguest
 
 </ul>

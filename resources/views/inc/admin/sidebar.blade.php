@@ -29,7 +29,7 @@
   @role('admin')
   <!-- Heading -->
   <div class="sidebar-heading">
-    Bus Information
+    Admin Information
   </div>
 
   <!-- Nav Item - Pages Collapse Menu -->
@@ -56,15 +56,15 @@
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Customers information:</h6>
-        <a class="collapse-item" href="utilities-color.html">All Customers</a>
-        <a class="collapse-item" href="utilities-border.html">Pending Tickets</a>
+        <a class="collapse-item" href="{{route('customer.index')}}">All Customers</a>
+        <a class="collapse-item" href="{{route('customer.pendingRequest')}}">Pending Reservations</a>
       </div>
     </div>
   </li>
   @endrole
 
   <div class="sidebar-heading">
-    Bus Information
+    Bus information
   </div>
 
   <!-- Nav Item - Pages Collapse Menu -->
@@ -73,6 +73,8 @@
       <i class="fas fa-fw fa-bus-alt"></i>
       <span>Bus list</span></a>
   </li>
+
+
 
   @role('user')
   <li class="nav-item">
