@@ -21,4 +21,19 @@ class AdminController extends Controller
     {
         return view('admin.buses');
     }
+    public function notifications()
+    {
+        $user = auth()->user();
+        return $user->notifications;
+    }
+    public function unreadNotifications()
+    {
+        $user = auth()->user();
+        return $user->unreadNotifications;
+    }
+    public function readNotifications()
+    {
+        $user = auth()->user();
+        return $user->readNotifications;
+    }
 }

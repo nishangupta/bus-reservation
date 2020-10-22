@@ -45,6 +45,9 @@ class CustomerController extends Controller
             ->addColumn('customer_email', function ($row) {
                 return $row->user->email;
             })
+            ->addColumn('passengers', function ($row) {
+                return $row->passengers;
+            })
             ->addColumn('pending', function ($row) {
                 return $row->pending ? '<span class="text-warning">Pending</span>' : '<span class="text-primary">Approved</span>';
             })

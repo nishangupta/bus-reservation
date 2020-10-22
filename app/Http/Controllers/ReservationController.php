@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Bus;
 use App\Models\Reservation;
+use App\Models\User;
+use App\Notifications\ReservationMade;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\DataTables;
 
@@ -35,7 +37,10 @@ class ReservationController extends Controller
         $reservation->additional_query = $request->additional_query;
         $reservation->save();
 
-        Alert::toast('Your reservation was made.', 'success');
+        $admin = User::where('email', 'admin@admin.com')->first();
+        $admin->notify(new ReservationMade(auth()->user()));
+
+        Alert::toast('Your reservation was made!', 'success');
         return redirect()->route('reservation.index');
     }
 

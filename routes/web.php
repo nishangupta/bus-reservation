@@ -35,6 +35,8 @@ Route::prefix('admin')->middleware('role:admin')->group(function () {
     Route::get('/get-all-customers', [CustomerController::class, 'all'])->name('customer.all');
     Route::get('/get-all-pending-request', [CustomerController::class, 'pendingRequestApi'])->name('customer.pendingRequestApi');
 
+    Route::get('/get-all-notifications', [AdminController::class, 'notifications'])->name('admin.notifications');
+
     //pending request
     Route::get('/customer-reservations/{id}/approve', [CustomerController::class, 'requestApprove'])->name('bus.requestApprove');
     Route::get('/customer-reservations/{id}/reject', [CustomerController::class, 'requestReject'])->name('bus.requestReject');

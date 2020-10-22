@@ -11,7 +11,7 @@
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Reservations Datatable</h6>
     </div>
-    <div class="card-body">
+    <div class="card-body small">
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
@@ -20,6 +20,7 @@
               <th>Name</th>
               <th>Customer Name</th>
               <th>Customer Email</th>
+              <th>Passengers</th>
               <th>Pending</th>
               <th>Rejected</th>
               <th>created_at</th>
@@ -46,6 +47,7 @@
       {data:'name'},
       {data:'customer_name'},
       {data:'customer_email'},
+      {data:'passengers',orderable:false,searchable:false},
       {data:'pending'},
       {data:'rejected'},
       {data:'created_at'},
