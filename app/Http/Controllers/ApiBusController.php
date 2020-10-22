@@ -17,8 +17,8 @@ class ApiBusController extends Controller
         return date('d/m/Y h:i A', strtotime($row->created_at));
       })
       ->addColumn('actions', function ($row) {
-        $btns = ' <a class="btn btn-info float-left  btn-sm w-50 " href="' . '$row->path()' . '" ><i class="fas fa-eye"></i> View</a>
-                  <a class="btn btn-primary btn-sm float-left w-50 " href="/admin/bus/' . $row->id . '/edit"><i class="fas fa-pen-square"></i> Edit</a>';
+        $btns = ' <a target="_blank" class="btn btn-info float-left  btn-sm w-50 " href="/bus/' . $row->id . '" ><i class="fas fa-eye"></i> View</a>
+                  <a target="_blank" class="btn btn-primary btn-sm float-left w-50 " href="/admin/bus/' . $row->id . '/edit"><i class="fas fa-pen-square"></i> Edit</a>';
         return $btns;
       })
       ->rawColumns(['actions', 'created_at'])

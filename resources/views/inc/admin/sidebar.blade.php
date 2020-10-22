@@ -10,14 +10,14 @@
   <hr class="sidebar-divider my-0">
   @role('admin')
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item {{ request()->segment(2) == 'dashboard' ? 'active': ''}}">
       <a class="nav-link" href="{{route('admin.dashboard')}}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
   @endrole
 
-  <li class="nav-item active">
+  <li class="nav-item {{ request()->segment(2) == '' ? 'active': ''}}">
     <a class="nav-link" href="{{route('home.index')}}">
       <i class="fas fa-fw fa-h-square"></i>
       <span>Home</span></a>
@@ -68,16 +68,14 @@
   </div>
 
   <!-- Nav Item - Pages Collapse Menu -->
-  <li class="nav-item">
+  <li class="nav-item {{ request()->segment(2) == 'search' ? 'active': ''}}">
     <a class="nav-link" href="{{route('home.search')}}">
       <i class="fas fa-fw fa-bus-alt"></i>
       <span>Bus list</span></a>
   </li>
 
-
-
   @role('user')
-  <li class="nav-item">
+  <li class="nav-item {{ request()->segment(1) == 'my-reservatins' ? 'active': ''}}">
     <a class="nav-link" href="{{route('reservation.index')}}">
       <i class="fas fa-fw fa-ticket-alt"></i>
       <span>My reservations</span></a>
