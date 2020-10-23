@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
 
     //chats 
     Route::get('/chats', [ChatController::class, 'index'])->name('chat.index');
+    Route::post('/chats', [ChatController::class, 'store'])->name('chat.store');
 });
 
 Route::prefix('admin')->middleware('role:admin')->group(function () {

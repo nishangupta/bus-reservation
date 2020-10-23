@@ -31,7 +31,7 @@
                   </div>
                 </a>
     
-                {{-- <a href="#" class="list-group-item list-group-item-action list-group-item-light rounded-0">
+                <a href="#" class="list-group-item list-group-item-action list-group-item-light rounded-0">
                   <div class="media"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" class="rounded-circle">
                     <div class="media-body ml-4">
                       <div class="d-flex align-items-center justify-content-between mb-1">
@@ -40,7 +40,7 @@
                       <p class="font-italic text-muted mb-0 text-small">Lorem ipsum dolor sit amet, consectetur. incididunt ut labore.</p>
                     </div>
                   </div>
-                </a>--}}
+                </a>
               </div>
             </div>
           </div>
@@ -111,7 +111,9 @@
           </div>
     
           <!-- Typing area -->
-          <form action="#" class="bg-light">
+          <form action="{{route('chat.store')}}" method="POST" class="bg-light">
+            @csrf
+            <input type="hidden" name="receiver" value="1">
             <div class="input-group border">
               <input type="text" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 bg-light">
               <div class="input-group-append">
@@ -137,7 +139,7 @@
 @push('css')
 <style>
 .chatbox-list{
-  max-height:90vh;
+  max-height:80vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column-reverse;

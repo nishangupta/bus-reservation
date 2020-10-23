@@ -37,7 +37,6 @@
             </div>
         </div>
       
-        @include('inc.admin.scroll-top')
         @include('inc.admin.logout-modal')
     </div>
     

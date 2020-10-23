@@ -11,4 +11,27 @@ class ChatController extends Controller
     {
         return view('chat.index');
     }
+
+    public function store(Request $request)
+    {
+        $message  = new Message();
+
+        $message->txt = $request->txt;
+        $message->sender = auth()->user()->id;
+        $message->reciever = $request->receiver;
+
+        if ($message->save()) {
+            $response = $request->txt;
+        } else {
+            $response = null;
+        }
+
+        return [
+            'message' => $response,
+        ];
+    }
+
+    public function getUserMessages($user)
+    {
+    }
 }
