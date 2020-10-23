@@ -7,6 +7,7 @@ use App\Http\Controllers\ApiBusController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -22,6 +23,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/bus/applyReservation/{bus}', [ReservationController::class, 'create'])->name('reservation.create');
     Route::get('/my-reservations/{id}/destroy', [ReservationController::class, 'destroy'])->name('reservation.destroy');
     Route::get('/my-reservations-api', [ReservationController::class, 'myReservationsApi'])->name('reservation.myReservationsApi');
+
+    //chats 
+    Route::get('/chats', [ChatController::class, 'index'])->name('chat.index');
 });
 
 Route::prefix('admin')->middleware('role:admin')->group(function () {
