@@ -28,7 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/chats', [ChatController::class, 'index'])->name('chat.index');
     Route::post('/chats', [ChatController::class, 'store'])->name('chat.store');
     Route::get('/get-messages', [ChatController::class, 'getMessages'])->name('chat.getMessages'); //for users
-    Route::get('/get-customer-messages/{userId}', [ChatController::class, 'getCustomerMessages'])->name('chat.getCustomerMessages'); //for admins
+    //admin chats
+    Route::get('/get-customer-messages/{userId}', [ChatController::class, 'getCustomerMessages'])->name('chat.getCustomerMessages');
     Route::get('/get-customer-list', [ChatController::class, 'getCustomerList'])->name('chat.customerList');
 });
 

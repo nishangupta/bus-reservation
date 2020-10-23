@@ -67,13 +67,18 @@
     Bus information
   </div>
 
-  <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item {{ request()->segment(2) == 'search' ? 'active': ''}}">
     <a class="nav-link" href="{{route('home.search')}}">
       <i class="fas fa-fw fa-bus-alt"></i>
       <span>Bus list</span></a>
   </li>
 
+   <li class="nav-item {{ request()->segment(1) == 'chats' ? 'active': ''}}">
+    <a class="nav-link" href="{{route('chat.index')}}">
+      <i class="fas fa-fw fa-bus-alt"></i>
+      <span>My chats</span></a>
+  </li>
+  
   @role('user')
   <li class="nav-item {{ request()->segment(1) == 'my-reservatins' ? 'active': ''}}">
     <a class="nav-link" href="{{route('reservation.index')}}">
