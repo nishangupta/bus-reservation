@@ -59,14 +59,14 @@ border="0" /></a>
 
 > Edit example.env to .env <br/>
 > Put your db username and password here with DB_DATABASE=busreservation. <br />
-> ''' php
+> '''
 
-    DB_CONNECTION=mysql <br/>
-    DB_HOST=127.0.0.1 <br/>
-    DB_PORT=3306 <br />
-    DB_DATABASE=busreservation <br/> !important
-    DB_USERNAME=root <br/>
-    DB_PASSWORD= <br/>
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=busreservation
+    DB_USERNAME=root 
+    DB_PASSWORD= 
 
 '''
 <br />
@@ -81,7 +81,7 @@ border="0" /></a>
 ## 4. Migrate Database
 
 > ~php artisan migrate:fresh <br>
-> ~php artisan db:seed <br/> > <br/>
+> ~php artisan db:seed <br/>
 
 ## 5. Serve application
 
